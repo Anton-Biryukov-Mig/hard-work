@@ -7,8 +7,7 @@ def mask_account_card(input_string: str) -> str | None:
         return get_mask_card_number(input_string)
     elif "Счет" in input_string:
         return get_mask_account(input_string)
-    else:
-        return None
+    return None
 
 
 def get_data(input_string: str) -> str | None:
