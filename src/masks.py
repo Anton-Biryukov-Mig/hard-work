@@ -1,10 +1,12 @@
-def get_mask_card_number(card_number: str) -> str | None:
+def get_mask_card_number(card_number: str) -> str:
     """Функция принимает на вход номер карты и возвращает ее маску"""
-    masked_number = card_number[:21] + "** **** " + card_number[-4:]
-    return masked_number
+    parts = card_number.split()
+    if len(parts) != 6 or not all(part.isdigit() for part in parts[2:]):
+        return "Неверный формат номера карты"
+    masked_parts = parts[:3] + [parts[3][:2] + "**"] + ["****"] + [parts[5]]
+    return " ".join(masked_parts)
 
 
-def get_mask_account(account_number: str) -> str | None:
+def get_mask_account(account_number: str) -> str:
     """Функция принимает на вход номер счета и возвращает его маску"""
-    masked_number = account_number[:5] + "**" + account_number[-4:]
-    return masked_number
+    return f"Счет **{account_number[-4:]}"
