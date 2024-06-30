@@ -15,4 +15,3 @@ def get_data(input_string: str) -> str | None:
     date = input_string.split("T")[0]
     formatted_date = f"{date[-2:]}.{date[5:7]}.{date[:4]}"
     return formatted_date
-
