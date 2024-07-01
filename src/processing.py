@@ -2,9 +2,10 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 
-def filter_by_state(data: List[Dict[str, Any]], state: str) -> List[Dict[str, Any]]:
+def filter_by_state(data: List[Dict[str, str]], state: str = "executed") -> List[Dict[str, str]]:
     """Функция принимает на вход список словарей и значение для ключа state."""
-    return [item for item in data if item.get("state") == state]
+    filtered_data = [d for d in data if d["state"] == state]
+    return filtered_data
 
 
 def sort_by_date(data: List[Dict[str, Any]], reverse: bool = False) -> List[Dict[str, Any]]:
