@@ -35,3 +35,4 @@ def test_mask_account_card(input_string: str, expected_output: str) -> None:
 def test_get_data(input_string: str, expected_output: str) -> None:
     """Тест функции get_data"""
     assert get_data(input_string) == expected_output
+
