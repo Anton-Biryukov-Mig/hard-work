@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 
 def filter_by_state(data: List[Dict[str, str]], state: str = "EXECUTED") -> List[Dict[str, str]]:
     """Функция принимает на вход список словарей и значение для ключа state."""
-    filtered_data = [d for d in data if d["state"] == state]
+    filtered_data = [{"state": d["state"], "date": d["date"]} for d in data if d["state"] == state]
     return filtered_data
 
 
