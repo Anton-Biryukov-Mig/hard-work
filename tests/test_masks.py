@@ -47,4 +47,3 @@ def test_get_mask_account(account_numbers: List[Tuple[str, str]]) -> None:
 
     for input_val, expected_output in account_numbers:
         assert get_mask_account(input_val) == expected_output
-
