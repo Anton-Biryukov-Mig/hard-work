@@ -59,3 +59,4 @@ def test_filter_by_state(sample_data: List[Dict[str, Any]], state: str, expected
 def test_sort_by_date(sample_data: List[Dict[str, Any]], reverse: bool, expected_output: List[Dict[str, Any]]) -> None:
     """Тест функции sort_by_date"""
     assert sort_by_date(sample_data, reverse=reverse) == expected_output
+
