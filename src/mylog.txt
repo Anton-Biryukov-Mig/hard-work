@@ -1,0 +1,2 @@
+INFO:root:my_function ok. Execution time: 0.00 seconds. Inputs: (1, 2), Result: 3
+INFO:root:my_function error: ValueError. Inputs: (1, 2), {}. Error: Test errorINFO:root:my_function ok. Execution time: 0.00 seconds. Inputs: (1, 2), Result: 3
