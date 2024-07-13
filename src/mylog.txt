@@ -1,0 +1,5 @@
+INFO:root:my_function ok. Execution time: 0.00 seconds. Inputs: (1, 2), Result: 3
+INFO:root:my_function ok. Execution time: 0.00 seconds. Inputs: (1, 2), Result: 3
+INFO:root:my_function ok. Execution time: 0.00 seconds. Inputs: (1, 2), Result: 3
+INFO:root:my_function ok. Execution time: 0.00 seconds. Inputs: (2, 2), Result: 4
+test_func ok
