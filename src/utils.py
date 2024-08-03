@@ -37,3 +37,4 @@ if __name__ == "__main__":
     #     print(list_trans[i])
     print(type(list_trans))
     print(*list_trans, sep="\n")
+
