@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 
 from src.utils import get_data_transactions
 
-load_dotenv("C:/Projects/FirstPython/my_prj/anton_biryukov_home_work/.env")
+load_dotenv("../.env")
 
-path = "C:/Projects/FirstPython/my_prj/anton_biryukov_home_work/data/operations.json"
+path = "../data/operations.json"
 
 
 def amount_transaction(transaction_by_id: Dict[str, Any]) -> float:
@@ -31,7 +31,7 @@ def amount_transaction(transaction_by_id: Dict[str, Any]) -> float:
 
 
 if __name__ == "__main__":
-    path = "C:/Projects/FirstPython/my_prj/anton_biryukov_home_work/data/operations.json"
+    path = "../data/operations.json"
     transactions = get_data_transactions(path)
     n = int(input("введите колличество транзакций: "))
     for i in range(n):
