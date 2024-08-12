@@ -1,0 +1,4 @@
+id;state;amount
+1;EXECUTED;100
+2;PENDING;200
+3;CANCELED;300
