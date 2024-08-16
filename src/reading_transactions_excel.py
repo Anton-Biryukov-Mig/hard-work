@@ -17,11 +17,12 @@ logger.addHandler(file_handler)
 logger.setLevel(logging.INFO)
 
 
-def get_data_transactions(path: str) -> List[Dict[str, Any]]:
+def get_data_transactions(operations_path: str) -> List[Dict[str, Any]]:
+    """Функция получения информации о транзакциях из XLSX-файла"""
     logger = logging.getLogger(__name__)
     try:
-        df = pd.read_excel(path)
-        logger.info(f"открытие файла {path}")
+        df = pd.read_excel(operations_path)
+        logger.info(f"открытие файла {operations_path}")
         logger.info("Получение информации о транзакциях")
         dict_trans = df.to_dict(orient="records")
 
@@ -30,7 +31,7 @@ def get_data_transactions(path: str) -> List[Dict[str, Any]]:
 
         return dict_trans_str_keys
     except FileNotFoundError:
-        logger.error(f"путь к файлу {path} не найден")
+        logger.error(f"путь к файлу {operations_path} не найден")
         return []
     except ValueError as e:
         logger.error(f"Ошибка при парсинге Excel файла: {str(e)}")
