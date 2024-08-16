@@ -19,7 +19,7 @@ logger.setLevel(logging.INFO)
 
 
 def get_data_transactions(operations_path: str) -> List[Dict[str, Any]]:
-    """функция возвращает список словарей с данными о  транзакциях"""
+    """функция возвращает список словарей с данными о  транзакциях csv"""
     try:
         logger.info("открытие файла transactions.csv")
         with open(operations_path, encoding="utf-8") as f:
