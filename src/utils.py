@@ -16,25 +16,25 @@ logger.addHandler(file_handler)
 logger.setLevel(logging.INFO)
 
 
-def get_data_transactions(path: str) -> List[Dict[str, Any]]:
+def get_data_transactions(operations_path: str) -> List[Dict[str, Any]]:
     """Функция возвращает список словарей с данными о транзакциях"""
     try:
-        logger.info("Открытие файла %s", path)
-        with open(path, encoding="utf-8") as f:
+        logger.info("Открытие файла %s", operations_path)
+        with open(operations_path, encoding="utf-8") as f:
             try:
-                logger.info("Получение информации о транзакциях %s", path)
+                logger.info("Получение информации о транзакциях %s", operations_path)
                 data_transactions: List[Dict[str, Any]] = json.load(f)
             except json.JSONDecodeError:
-                logger.error("Невозможно декодировать файл %s", path)
+                logger.error("Невозможно декодировать файл %s", operations_path)
                 return []
     except FileNotFoundError:
-        logger.error("Путь к файлу %s не найден", path)
+        logger.error("Путь к файлу %s не найден", operations_path)
         return []
     return data_transactions
 
 
 if __name__ == "__main__":
-    path = "../data/operations.json"
-    list_trans = get_data_transactions(path)
+    operations_path = "../data/operations.json"
+    list_trans = get_data_transactions(operations_path)
     print(type(list_trans))
     print(*list_trans, sep="\n")
