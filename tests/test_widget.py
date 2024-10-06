@@ -21,7 +21,8 @@ def test_mask_account_card(input_string: str, expected_output: str) -> None:
     elif "Счет" in input_string:
         assert mask_account_card(input_string) == expected_output
     else:
-        assert mask_account_card(input_string) is None
+        with pytest.raises(ValueError):
+            mask_account_card(input_string)
 
 
 @pytest.mark.parametrize(
@@ -34,4 +35,4 @@ def test_mask_account_card(input_string: str, expected_output: str) -> None:
 )
 def test_get_data(input_string: str, expected_output: str) -> None:
     """Тест функции get_data"""
-    assert get_data(input_string) == expected_output
+    assert get_data(input_string) == [expected_output]
