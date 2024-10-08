@@ -1,7 +1,7 @@
 import logging
 import os
 from collections import Counter
-from typing import Any, Iterable
+from typing import Any, Dict, List
 
 from config import DATA_DIR, LOGS_DIR
 from utils import get_data_transactions
@@ -17,20 +17,22 @@ logger.addHandler(file_handler)
 logger.setLevel(logging.INFO)
 
 
-def list_categories(transactions: list[dict[str, Any]]) -> Iterable[str]:
+def list_categories(transactions: List[Dict[str, Any]]) -> Dict[str, int]:
+    """Функция подсчёта операций по категориям"""
+    categories = [transaction["description"] for transaction in transactions if "description" in transaction]
+    return dict(Counter(categories))
 
-    return (transaction["description"] for transaction in transactions if "description" in transaction)
 
+def categories_by_descriptions() -> Dict[str, int]:
+    list_trans = get_data_transactions(operations_path)
+    if list_trans is None:
+        return Counter()
 
-def categories_by_descriptions(my_list_categories: Iterable[str]) -> Counter[str]:
-
-    counted = Counter(my_list_categories)
-    return counted
+    my_list_categories = list_categories(list_trans)
+    return Counter(my_list_categories)
 
 
 if __name__ == "__main__":
     operations_path = os.path.join(DATA_DIR, "operations.json")
-    list_trans = get_data_transactions(operations_path)
-    # print(*list_categories(list_trans), sep="\n")
-    my_list_categories = list_categories(list_trans)
-    print(categories_by_descriptions(my_list_categories))
+    get_data_transactions(operations_path)
+    print(categories_by_descriptions())
