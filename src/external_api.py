@@ -8,7 +8,7 @@ from src.utils import get_data_transactions
 
 load_dotenv("../.env")
 
-path = "../data/operations.json"
+operations_path = "../data/operations.json"
 
 
 def amount_transaction(transaction_by_id: Dict[str, Any]) -> float:
@@ -31,8 +31,8 @@ def amount_transaction(transaction_by_id: Dict[str, Any]) -> float:
 
 
 if __name__ == "__main__":
-    path = "../data/operations.json"
-    transactions = get_data_transactions(path)
+    operations_path = "../data/operations.json"
+    transactions = get_data_transactions(operations_path)
     n = int(input("введите колличество транзакций: "))
     for i in range(n):
         print(amount_transaction(transactions[i]))
